@@ -1,0 +1,4 @@
+[core]
+    remote = mlopt-c3
+['remote "mlopt-c3"']
+    url = s3://mlopt-c3
