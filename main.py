@@ -1,12 +1,4 @@
 # Put the code for your API here.
-from fastapi import FastAPI, Query
-from pydantic import BaseModel
-import pandas as pd
-import pickle
-
-from starter.ml.data import process_data
-from starter.ml.model import inference
-
 import os
 
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
@@ -14,6 +6,14 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
     if os.system("dvc pull") != 0:
         exit("dvc pull failed")
     os.system("rm -r .dvc .apt/usr/lib/dvc")
+
+from fastapi import FastAPI, Query
+from pydantic import BaseModel
+import pandas as pd
+import pickle
+
+from starter.ml.data import process_data
+from starter.ml.model import inference
 
 model = pickle.load(open("model/model.pkl", 'rb'))
 encoder = pickle.load(open("model/onehotencoder.pkl", 'rb'))
