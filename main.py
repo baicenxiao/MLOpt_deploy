@@ -1,4 +1,3 @@
-# Put the code for your API here.
 import os
 
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
