@@ -37,6 +37,7 @@ neg_examples = [{'age': 21,
                  'salary': '<=50K'}
                 ]
 
+
 def test_greeting():
     response = client.get("/")
     assert response.status_code == 200
