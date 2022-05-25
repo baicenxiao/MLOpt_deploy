@@ -31,7 +31,7 @@ cat_features = [
 app = FastAPI()
 
 
-class ScoringData(BaseModel):
+class RequestData(BaseModel):
     age: int
     workclass: str
     fnlgt: int
@@ -75,7 +75,7 @@ async def greeting():
 
 
 @app.post("/score")
-async def score(sd: ScoringData):
+async def predict_salary(sd: RequestData):
     df = pd.DataFrame(sd, columns=['0', '1']).set_index('0').T\
         .assign(salary='dummy')
 
