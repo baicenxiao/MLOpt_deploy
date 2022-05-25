@@ -75,4 +75,4 @@ for feature in cat_features:
 
 results_df = pd.DataFrame(results)
 results_df.columns = ['feature', 'slice', 'precision', 'recall', 'f1beta']
-results_df.to_csv('slice_performance.txt', index=False)
+results_df.to_csv('slice_output.txt', index=False)

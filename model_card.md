@@ -15,6 +15,10 @@ The base training data was split using a 80%/20% train and test split
 
 ## Metrics
 We use precision, recall and the f1 score to measure model performance.
+Performance of current model:
+
+(precision, recall, f1) = (0.6148, 0.6101, 0.6125)
+
 
 ## Ethical Considerations
 There have been historic income disparities among gender racial and ethnic groups. The data may be reflective of this and whatever models may trained will reinforce these inherent disparities.
