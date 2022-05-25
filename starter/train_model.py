@@ -9,7 +9,7 @@ from ml.data import process_data
 from ml.model import train_model, compute_model_metrics, inference
 
 # Add code to load in the data.
-data = pd.read_csv('../data/census_nowhitespace.csv')
+data = pd.read_csv('../data/census_nowhitespace.csv').iloc[:, 1:]
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(data, test_size=0.20)
@@ -58,12 +58,12 @@ def slice_feature(feature_to_slice):
 
         test_slice = test.loc[slice_idx]
 
-        X_test_slice, y_test_slice, _, _ = process_data(
+        x_test_slice, y_test_slice, _, _ = process_data(
             test_slice, categorical_features=cat_features, label="salary", training=False,
             encoder=encoder, lb=lb
         )
 
-        slice_preds = inference(model, X_test_slice)
+        slice_preds = inference(model, x_test_slice)
 
         metrics = compute_model_metrics(slice_preds, y_test_slice)
 
